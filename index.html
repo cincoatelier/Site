@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cinco atelier — Arquitectura, Design e Espaços</title>
+  <meta name="description" content="cinco atelier — Arquitectura, interiores, decoração, store design, espaços corporativos, eventos, design de comunicação, consultadoria e formação.">
+  <style>
+    :root {
+      --bg: #f5f3ef;
+      --text: #22211f;
+      --muted: #6e6a63;
+      --line: #d8d4cc;
+      --accent: #22211f;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      padding: 90px 0;
+    }
+
+    .brand {
+      font-size: clamp(3.5rem, 11vw, 9rem);
+      line-height: .82;
+      letter-spacing: -.07em;
+      font-weight: 500;
+      margin: 0 0 44px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .72rem;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .intro {
+      max-width: 780px;
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      line-height: 1.35;
+      letter-spacing: -.02em;
+      margin: 0;
+    }
+
+    main {
+      padding: 90px 0 120px;
+    }
+
+    section {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(180px, .35fr) minmax(0, 1fr);
+      gap: 60px;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.1;
+      letter-spacing: -.04em;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    p {
+      max-width: 760px;
+      margin: 0 0 24px;
+      font-size: 1.04rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      margin-top: 42px;
+      border: 1px solid var(--line);
+    }
+
+    .service {
+      background: var(--bg);
+      padding: 28px;
+      min-height: 150px;
+    }
+
+    .service strong {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .service span {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .highlight {
+      margin-top: 42px;
+      padding: 42px;
+      border: 1px solid var(--text);
+    }
+
+    .highlight p {
+      font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+      line-height: 1.4;
+      letter-spacing: -.02em;
+    }
+
+    footer {
+      padding: 42px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 32px), var(--max));
+      }
+
+      header {
+        min-height: 76vh;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      main {
+        padding: 45px 0 70px;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container hero">
+      <div class="eyebrow">Arquitectura · Design · Espaços</div>
+      <h1 class="brand">cinco<br>atelier</h1>
+      <p class="intro">
+        Um atelier de arquitectura e design dedicado à criação, transformação
+        e valorização de espaços, com soluções à medida para particulares,
+        empresas e marcas.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section>
+      <div class="section-grid">
+        <h2>O atelier</h2>
+        <div>
+          <p>
+            O <strong>cinco atelier</strong> é um atelier de arquitectura e design
+            dedicado à criação, transformação e valorização de espaços,
+            desenvolvendo soluções à medida para particulares, empresas e marcas.
+          </p>
+          <p>
+            Trabalhamos em diferentes escalas e áreas de intervenção — da
+            arquitectura de edifícios e interiores à decoração, do espaço
+            comercial aos escritórios, dos eventos ao design de comunicação —
+            procurando sempre estabelecer uma relação coerente entre
+            funcionalidade, estética, identidade e experiência.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-grid">
+        <h2>Projectos</h2>
+        <div>
+          <p>
+            Desenvolvemos <strong>projectos de arquitectura e interiores</strong>,
+            assim como projectos de <strong>decoração e reformulação de espaços</strong>,
+            acompanhando cada projecto desde a definição do conceito até à
+            concretização das soluções.
+          </p>
+          <p>
+            A nossa abordagem procura responder às necessidades específicas de
+            cada cliente, conciliando criatividade, funcionalidade e atenção
+            ao detalhe.
+          </p>
+
+          <div class="services">
+            <div class="service">
+              <strong>Arquitectura</strong>
+              <span>Projectos de arquitectura e edifícios.</span>
+            </div>
+            <div class="service">
+              <strong>Interiores</strong>
+              <span>Concepção e transformação de espaços interiores.</span>
+            </div>
+            <div class="service">
+              <strong>Decoração</strong>
+              <span>Soluções de mobiliário, materiais, cores e iluminação.</span>
+            </div>
+            <div class="service">
+              <strong>Store Design</strong>
+              <span>Espaços comerciais alinhados com a identidade das marcas.</span>
+            </div>
+            <div class="service">
+              <strong>Espaços corporativos</strong>
+              <span>Projectos para escritórios e empresas.</span>
+            </div>
+            <div class="service">
+              <strong>Eventos</strong>
+              <span>Projectos espaciais e experiências para eventos.</span>
+            </div>
+            <div class="service">
+              <strong>Design de comunicação</strong>
+              <span>Linguagem visual associada aos espaços e às marcas.</span>
+            </div>
+            <div class="service">
+              <strong>Formação</strong>
+              <span>Workshops e cursos à distância.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-grid">
+        <h2>À medida</h2>
+        <div>
+          <p>
+            No <strong>cinco atelier</strong>, acreditamos que cada projecto pode
+            ter uma dimensão e um grau de acompanhamento diferentes.
+          </p>
+          <p>
+            Por isso, disponibilizamos desde <strong>pequenas consultas de
+            aconselhamento e orientação</strong>, para quem procura apenas uma
+            opinião especializada ou ajuda na tomada de decisões, até
+            <strong>serviços completos chave na mão</strong>, em que assumimos o
+            desenvolvimento e acompanhamento global do projecto.
+          </p>
+
+          <div class="highlight">
+            <p>
+              Do aconselhamento pontual à concretização integral de um espaço,
+              adaptamos o nosso serviço às necessidades de cada cliente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-grid">
+        <h2>Consultadoria<br>à distância</h2>
+        <div>
+          <p>
+            Através da nossa <strong>consultadoria à distância</strong>, é
+            possível obter aconselhamento profissional sem necessidade de
+            acompanhamento presencial.
+          </p>
+          <p>
+            Analisamos cada situação de forma personalizada e ajudamos a
+            encontrar soluções para layout, materiais, cores, iluminação,
+            mobiliário, decoração e reformulação de espaços, adaptando o serviço
+            às necessidades concretas de cada cliente.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-grid">
+        <h2>Empresas,<br>marcas e eventos</h2>
+        <div>
+          <p>
+            Na área empresarial e comercial, desenvolvemos <strong>projectos de
+            store design e espaços corporativos</strong>, criando ambientes que
+            traduzem a identidade e os valores de cada marca ou empresa.
+          </p>
+          <p>
+            Concebemos igualmente <strong>projectos espaciais para eventos</strong>,
+            desde o conceito e organização do espaço à sua linguagem visual e
+            experiência.
+          </p>
+          <p>
+            A estas áreas juntamos o <strong>design de comunicação associado aos
+            projectos</strong>, criando identidades e elementos gráficos que
+            permitem construir uma linguagem visual coerente entre o espaço,
+            a marca e a sua comunicação.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-grid">
+        <h2>Formação</h2>
+        <div>
+          <p>
+            O <strong>cinco atelier</strong> dedica-se ainda à formação, através
+            de <strong>workshops e cursos à distância</strong> nas áreas da
+            arquitectura, interiores, decoração, design de espaços e comunicação.
+          </p>
+          <p>
+            Partilhamos conhecimento e ferramentas práticas com profissionais,
+            estudantes e todos aqueles que procuram aprofundar estas áreas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-grid">
+        <h2>Uma forma<br>de trabalhar</h2>
+        <div>
+          <p>
+            Mais do que projectar espaços, procuramos <strong>criar lugares com
+            identidade, propósito e carácter</strong>, oferecendo uma abordagem
+            flexível e próxima, que se adapta a cada pessoa, projecto ou negócio.
+          </p>
+          <p>
+            Desde uma pequena decisão que precisa de orientação até à
+            concretização integral de um espaço, <strong>chave na mão</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      cinco atelier · Arquitectura, Design e Espaços
+    </div>
+  </footer>
+</body>
+</html>
+
+
