@@ -219,6 +219,16 @@
       font-size: .85rem;
     }
 
+
+    /* Efeito nas palavras: fundo preto e letra com a cor do fundo do site */
+    w-d { display: inline; }
+    @media (hover: hover) {
+      w-d:hover {
+        background: var(--text);
+        color: var(--bg);
+      }
+    }
+
     @media (max-width: 720px) {
       .container {
         width: min(calc(100% - 32px), var(--max));
@@ -271,15 +281,9 @@
       </nav>
       <h1 class="brand">cinco<br>atelier</h1>
       <p class="intro">
-        O Cinco Atelier é um atelier de arquitectura e design 
-        dedicado à criação, transformação e valorização de espaços. 
-        Desenvolvemos projectos à medida, conciliando identidade, 
-        funcionalidade e estética para dar resposta às 
-        necessidades de particulares, empresas e marcas.
-        Acreditamos que cada espaço tem um potencial único. 
-        Por isso, abordamos cada projecto de forma integrada, 
-        procurando soluções que conciliem criatividade, 
-        rigor e uma visão estratégica, desde o conceito inicial até à concretização.
+        Um atelier de arquitectura e design dedicado à criação, transformação
+        e valorização de espaços, com soluções à medida para particulares,
+        empresas e marcas.
       </p>
     </div>
   </header>
@@ -487,6 +491,26 @@
         li.querySelector('button').setAttribute('aria-expanded', 'false');
       });
     });
+  
+    // Efeito nas palavras: cada palavra fica num elemento próprio para poder reagir ao cursor
+    (function () {
+      var alvos = document.querySelectorAll('.brand, .intro, h2, main p, .service strong, .service span, footer .container');
+      alvos.forEach(function (el) {
+        var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        var nos = [];
+        while (walker.nextNode()) nos.push(walker.currentNode);
+        nos.forEach(function (no) {
+          if (!no.nodeValue.trim() || no.parentNode.closest('w-d')) return;
+          var frag = document.createDocumentFragment();
+          no.nodeValue.split(/(\s+)/).forEach(function (parte) {
+            if (!parte) return;
+            if (/^\s+$/.test(parte)) { frag.appendChild(document.createTextNode(parte)); }
+            else { var w = document.createElement('w-d'); w.textContent = parte; frag.appendChild(w); }
+          });
+          no.parentNode.replaceChild(frag, no);
+        });
+      });
+    })();
   </script>
 </body>
 </html>
