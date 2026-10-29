@@ -173,31 +173,11 @@
       margin-bottom: 0;
     }
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      margin-top: 42px;
-      border: 1px solid var(--line);
-    }
-
-    .service {
-      background: var(--bg);
-      padding: 28px;
-      min-height: 150px;
-    }
-
-    .service strong {
+    .foto {
       display: block;
-      font-size: 1.05rem;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .service span {
-      color: var(--muted);
-      font-size: .94rem;
+      width: 100%;
+      height: auto;
+      margin-top: 42px;
     }
 
     .highlight {
@@ -249,10 +229,6 @@
       .section-grid {
         grid-template-columns: 1fr;
         gap: 28px;
-      }
-
-      .services {
-        grid-template-columns: 1fr;
       }
 
       .highlight {
@@ -320,40 +296,8 @@
             ao detalhe.
           </p>
 
-          <div class="services">
-            <div class="service">
-              <strong>Arquitectura</strong>
-              <span>Projectos de arquitectura e edifícios.</span>
-            </div>
-            <div class="service">
-              <strong>Interiores</strong>
-              <span>Concepção e transformação de espaços interiores.</span>
-            </div>
-            <div class="service">
-              <strong>Decoração</strong>
-              <span>Soluções de mobiliário, materiais, cores e iluminação.</span>
-            </div>
-            <div class="service">
-              <strong>Store Design</strong>
-              <span>Espaços comerciais alinhados com a identidade das marcas.</span>
-            </div>
-            <div class="service">
-              <strong>Espaços corporativos</strong>
-              <span>Projectos para escritórios e empresas.</span>
-            </div>
-            <div class="service">
-              <strong>Eventos</strong>
-              <span>Projectos espaciais e experiências para eventos.</span>
-            </div>
-            <div class="service">
-              <strong>Design de comunicação</strong>
-              <span>Linguagem visual associada aos espaços e às marcas.</span>
-            </div>
-            <div class="service">
-              <strong>Formação</strong>
-              <span>Workshops e cursos à distância.</span>
-            </div>
-          </div>
+          <img class="foto" src="final6.jpg" width="1024" height="1024" loading="lazy"
+               alt="Vista nocturna de um edifício de linhas curvas, com janelas iluminadas na fachada, rodeado de árvores e relvado.">
         </div>
       </div>
     </section>
@@ -488,7 +432,7 @@
   
     // Efeito nas palavras: cada palavra fica num elemento próprio para poder reagir ao cursor
     (function () {
-      var alvos = document.querySelectorAll('.brand, .intro, h2, main p, .service strong, .service span, footer .container');
+      var alvos = document.querySelectorAll('.brand, .intro, h2, main p, footer .container');
       alvos.forEach(function (el) {
         var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
         var nos = [];
