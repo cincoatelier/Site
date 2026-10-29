@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cinco atelier</title>
+  <title>cinco atelier — Arquitectura, Design e Espaços</title>
   <meta name="description" content="cinco atelier — Arquitectura, interiores, decoração, store design, espaços corporativos, eventos, design de comunicação, consultadoria e formação.">
   <style>
     :root {
@@ -171,6 +171,13 @@
 
     p:last-child {
       margin-bottom: 0;
+    }
+
+    /* Parallax do título: título e texto de apresentação descem a velocidades diferentes e desvanecem */
+    .brand, .intro { will-change: transform, opacity; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .brand, .intro { transform: none !important; opacity: 1 !important; }
     }
 
     /* Parallax: a moldura corta a imagem e a imagem move-se mais devagar do que a página */
@@ -494,6 +501,32 @@
       window.addEventListener('scroll', pedir, { passive: true });
       window.addEventListener('resize', pedir);
       window.addEventListener('load', pedir);
+      actualizar();
+    })();
+
+    // Parallax do título: o nome desce devagar, o texto de apresentação um pouco mais depressa, e ambos desvanecem
+    (function () {
+      var cab = document.querySelector('header');
+      var titulo = document.querySelector('.brand');
+      var texto = document.querySelector('.intro');
+      if (!cab || !titulo || !texto) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var pendente = false;
+
+      function actualizar() {
+        pendente = false;
+        var h = cab.offsetHeight;
+        var y = Math.max(0, Math.min(window.pageYOffset, h));
+        var op = Math.max(0, 1 - (y / h) * 1.1).toFixed(3);
+        titulo.style.transform = 'translate3d(0,' + (y * 0.15).toFixed(1) + 'px,0)';
+        texto.style.transform = 'translate3d(0,' + (y * 0.30).toFixed(1) + 'px,0)';
+        titulo.style.opacity = op;
+        texto.style.opacity = op;
+      }
+      function pedir() { if (!pendente) { pendente = true; requestAnimationFrame(actualizar); } }
+
+      window.addEventListener('scroll', pedir, { passive: true });
+      window.addEventListener('resize', pedir);
       actualizar();
     })();
   </script>
