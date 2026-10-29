@@ -58,7 +58,77 @@
       font-size: .72rem;
       color: var(--muted);
       margin-bottom: 22px;
+      position: relative;
+      z-index: 20;
     }
+
+    .menu, .menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .menu > li { position: relative; }
+
+    .menu > li + li::before {
+      content: "·";
+      margin: 0 .9em;
+    }
+
+    .menu > li { display: flex; align-items: center; }
+
+    .menu a, .menu button {
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+      color: inherit;
+      background: none;
+      border: 0;
+      padding: 6px 0;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .menu a:hover, .menu button:hover,
+    .menu li.open > button { color: var(--text); }
+
+    .menu .caret::after {
+      content: " ▾";
+      font-size: .8em;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 260px;
+      max-width: calc(100vw - 32px);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 8px 0;
+      text-transform: none;
+      letter-spacing: .01em;
+      font-size: .9rem;
+    }
+
+    .menu > li:hover > .submenu,
+    .menu > li.open > .submenu,
+    .menu > li:focus-within > .submenu { display: block; }
+
+    .submenu a {
+      display: block;
+      padding: 10px 20px;
+      color: var(--text);
+    }
+
+    .submenu a:hover { background: #ebe8e2; }
 
     .intro {
       max-width: 780px;
@@ -191,7 +261,20 @@
 <body>
   <header>
     <div class="container hero">
-      <div class="eyebrow">Arquitectura · Design · Espaços · <a href="https://cincoatelier.github.io/site/questionario.html">quiz</a></div>
+      <nav class="eyebrow" aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="#arquitectura">Arquitectura</a></li>
+          <li><a href="#design">Design</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li>
+            <button type="button" class="caret" aria-haspopup="true" aria-expanded="false">Ferramentas para o ajudar</button>
+            <ul class="submenu">
+              <li><a href="#">Quiz - Qual o teu estilo</a></li>
+              <li><a href="https://cincoatelier.github.io/site/questionario.html">Questionário para análise inicial da sua planta</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
       <h1 class="brand">cinco<br>atelier</h1>
       <p class="intro">
         Um atelier de arquitectura e design dedicado à criação, transformação
@@ -223,7 +306,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="arquitectura">
       <div class="section-grid">
         <h2>Projectos</h2>
         <div>
@@ -322,7 +405,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="design">
       <div class="section-grid">
         <h2>Empresas,<br>marcas e eventos</h2>
         <div>
@@ -387,6 +470,24 @@
       cinco atelier · Arquitectura, Design e Espaços
     </div>
   </footer>
+  <script>
+    // Menu: abre/fecha ao toque (telemóvel) e fecha ao clicar fora
+    document.querySelectorAll('.menu > li').forEach(function (li) {
+      var btn = li.querySelector(':scope > button');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = li.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    });
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.menu > li.open').forEach(function (li) {
+        li.classList.remove('open');
+        li.querySelector('button').setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>
 
