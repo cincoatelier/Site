@@ -182,6 +182,27 @@
   .ghost{ border-color:transparent; padding-left:0; }
   .ghost:hover{ background:transparent; color:var(--clay); }
  
+
+  /* dados de contacto */
+  .ct-lede{ font-size:14px; color:#4B4A42; line-height:1.55; margin-bottom:18px; max-width:52ch; }
+  .ct-field{ margin-bottom:16px; }
+  .ct-field label.ct-label{
+    display:block; font-family:'IBM Plex Mono', monospace; font-size:11px;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--sage); margin-bottom:6px;
+  }
+  .ct-field input[type=text], .ct-field input[type=email], .ct-field input[type=tel]{
+    width:100%; padding:11px 12px; border:1px solid var(--ink); background:var(--paper-light);
+    color:var(--ink); font-family:'IBM Plex Sans', sans-serif; font-size:15px; border-radius:0;
+  }
+  .ct-field input:focus{ outline:2px solid var(--clay); outline-offset:1px; }
+  .ct-err{ display:none; color:#A12B1F; font-size:12.5px; margin-top:5px; }
+  .ct-field.bad input[type=text], .ct-field.bad input[type=email], .ct-field.bad input[type=tel]{ border-color:#A12B1F; }
+  .ct-field.bad .ct-err{ display:block; }
+  .ct-consent{ display:flex; gap:10px; font-size:12.5px; color:#4B4A42; line-height:1.5; margin:4px 0 4px; }
+  .ct-consent input{ margin-top:3px; accent-color:var(--clay); }
+  #ctStatus{ color:#A12B1F; font-size:13px; margin-top:12px; min-height:1em; }
+  .ct-hp{ position:absolute; left:-9999px; }
+
   /* results */
   #results .cat-title{ margin-bottom:6px; }
   .stamp-wrap{
@@ -291,6 +312,7 @@
 .site-nav .sn-sub a{display:block;padding:10px 20px;color:var(--sn-text)}
 .site-nav .sn-sub a:hover{background:var(--sn-hover)}
 </style>
+  <link rel="icon" href="favicon.ico" sizes="any">
 </head>
 <body>
 <nav class="site-nav" aria-label="Menu principal">
@@ -551,6 +573,40 @@
     </div>
  
     <!-- RESULTADOS -->
+    <!-- STEP: DADOS PESSOAIS -->
+    <div class="step" data-step="contact" id="contactStep">
+      <div class="cat-label">Quase a terminar</div>
+      <div class="cat-title">Os seus dados</div>
+      <p class="ct-lede">Para ver o resultado, indique-nos os seus dados de contacto. Usamo-los apenas para falar consigo sobre o seu projeto.</p>
+      <form id="contactForm" novalidate>
+        <input type="text" class="ct-hp" id="ctGotcha" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="ct-field" id="fNome">
+          <label class="ct-label" for="ctNome">Nome</label>
+          <input type="text" id="ctNome" name="nome" autocomplete="name">
+          <div class="ct-err">Indique o seu nome.</div>
+        </div>
+        <div class="ct-field" id="fEmail">
+          <label class="ct-label" for="ctEmail">E-mail</label>
+          <input type="email" id="ctEmail" name="email" autocomplete="email" inputmode="email">
+          <div class="ct-err">Indique um e-mail válido.</div>
+        </div>
+        <div class="ct-field" id="fTel">
+          <label class="ct-label" for="ctTel">Telefone</label>
+          <input type="tel" id="ctTel" name="telefone" autocomplete="tel" inputmode="tel">
+          <div class="ct-err">Indique um número de telefone válido.</div>
+        </div>
+        <div class="ct-field" id="fRgpd">
+          <label class="ct-consent"><input type="checkbox" id="ctRgpd"><span>Aceito que o atelier utilize os meus dados e as minhas respostas apenas para entrar em contacto comigo.</span></label>
+          <div class="ct-err">É necessário aceitar para ver o resultado.</div>
+        </div>
+        <div id="ctStatus" role="alert"></div>
+        <div class="nav">
+          <button class="ghost" id="ctBack" type="button">← Anterior</button>
+          <button class="primary" id="ctSubmit" type="submit">Ver resultado →</button>
+        </div>
+      </form>
+    </div>
+ 
     <div class="step" data-step="results" id="results">
       <div class="cat-label">Resultado</div>
       <div class="cat-title">O seu perfil estético</div>
@@ -587,6 +643,8 @@
 <script>
 (function(){
   var TOTAL_STEPS = 7;
+  // URL da aplicação web do Apps Script (ver instruções). Enquanto não for preenchido, os dados não são enviados.
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycby0_rL8NDs0hrbjyLUXk6mjiLmpaP_VljH1OAxoRipThu_CuyJYK5KJ_Aqait2uBW5E/exec";
   var current = 1;
   var answers = {}; // { sofa: 'escandinavo', cadeira: 'classico', ... }
  
@@ -652,14 +710,17 @@
  
   function goTo(step){
     document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
-    if (step > TOTAL_STEPS){
+    current = step;
+    if (step === TOTAL_STEPS + 2){
       document.getElementById('results').classList.add('active');
       stepNav.style.display = 'none';
       renderResults();
+    } else if (step === TOTAL_STEPS + 1){
+      document.getElementById('contactStep').classList.add('active');
+      stepNav.style.display = 'none';
     } else {
       document.querySelector('.step[data-step="'+step+'"]').classList.add('active');
       stepNav.style.display = 'flex';
-      current = step;
       updateNav();
     }
     updateProgress();
@@ -667,8 +728,7 @@
   }
  
   nextBtn.addEventListener('click', function(){
-    if (current < TOTAL_STEPS){ goTo(current + 1); }
-    else { current = TOTAL_STEPS + 1; goTo(current); }
+    goTo(current + 1);
   });
   backBtn.addEventListener('click', function(){
     if (current > 1){ goTo(current - 1); }
@@ -681,13 +741,18 @@
     goTo(1);
   });
  
-  function renderResults(){
+  function computeResult(){
     var counts = { minimalista:0, escandinavo:0, industrial:0, classico:0 };
     Object.keys(answers).forEach(function(cat){
       counts[answers[cat]] = (counts[answers[cat]] || 0) + 1;
     });
- 
     var order = Object.keys(counts).sort(function(a,b){ return counts[b]-counts[a]; });
+    return { counts: counts, order: order };
+  }
+ 
+  function renderResults(){
+    var r = computeResult();
+    var counts = r.counts, order = r.order;
     var topStyle = order[0];
     var top = styleMeta[topStyle];
  
@@ -708,6 +773,72 @@
       barsEl.appendChild(row);
     });
   }
+ 
+
+  // ---------- Dados pessoais + registo no Apps Script ----------
+  var contactForm = document.getElementById('contactForm');
+  var ctStatus = document.getElementById('ctStatus');
+  var ctSubmit = document.getElementById('ctSubmit');
+ 
+  document.getElementById('ctBack').addEventListener('click', function(){ goTo(TOTAL_STEPS); });
+ 
+  function setBad(id, bad){ document.getElementById(id).classList.toggle('bad', bad); return !bad; }
+ 
+  function validateContact(){
+    var nome = document.getElementById('ctNome').value.trim();
+    var email = document.getElementById('ctEmail').value.trim();
+    var tel = document.getElementById('ctTel').value.trim();
+    var digits = tel.replace(/\D/g, '');
+    var ok = true;
+    ok = setBad('fNome', nome.length < 2) && ok;
+    ok = setBad('fEmail', !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) && ok;
+    ok = setBad('fTel', !/^[+0-9\s().-]+$/.test(tel) || digits.length < 9 || digits.length > 15) && ok;
+    ok = setBad('fRgpd', !document.getElementById('ctRgpd').checked) && ok;
+    return ok ? { nome: nome, email: email, telefone: tel } : null;
+  }
+ 
+  function buildPayload(c){
+    var r = computeResult();
+    var nm = function(k){ return styleMeta[k] ? styleMeta[k].name : (k || ''); };
+    var pct = function(k){ return Math.round((r.counts[k] / TOTAL_STEPS) * 100); };
+    return {
+      nome: c.nome, email: c.email, telefone: c.telefone, consentimento: 'Aceite',
+      gotcha: document.getElementById('ctGotcha').value,
+      sofa: nm(answers.sofa), cadeira: nm(answers.cadeira), mesa: nm(answers.mesa),
+      iluminacao: nm(answers.iluminacao), paleta: nm(answers.paleta),
+      materiais: nm(answers.materiais), revestimentos: nm(answers.revestimentos),
+      resultado: nm(r.order[0]),
+      pct_minimalista: pct('minimalista'), pct_escandinavo: pct('escandinavo'),
+      pct_industrial: pct('industrial'), pct_classico: pct('classico')
+    };
+  }
+ 
+  contactForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var c = validateContact();
+    if (!c){
+      var bad = contactForm.querySelector('.bad');
+      if (bad) bad.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+    ctStatus.textContent = '';
+    ctSubmit.disabled = true; ctSubmit.textContent = 'A enviar…';
+    try {
+      if (SCRIPT_URL.indexOf('COLE_AQUI') === -1){
+        await fetch(SCRIPT_URL, {
+          method: 'POST', mode: 'no-cors',
+          headers: {'Content-Type': 'text/plain;charset=utf-8'},
+          body: JSON.stringify(buildPayload(c))
+        });
+      } else {
+        console.warn('SCRIPT_URL por configurar: os dados não foram enviados.');
+      }
+      goTo(TOTAL_STEPS + 2);
+    } catch (err) {
+      ctStatus.textContent = 'Não foi possível enviar os dados. Verifique a ligação e tente novamente.';
+    }
+    ctSubmit.disabled = false; ctSubmit.textContent = 'Ver resultado →';
+  });
  
   updateNav();
   updateProgress();
