@@ -181,6 +181,13 @@
       .brand, .intro { transform: none !important; opacity: 1 !important; }
     }
 
+    /* Parallax dos títulos das secções: descem mais devagar do que o texto ao lado */
+    main h2 { will-change: transform; }
+
+    @media (prefers-reduced-motion: reduce) {
+      main h2 { transform: none !important; }
+    }
+
     /* Parallax: a moldura corta a imagem e a imagem move-se mais devagar do que a página */
     .parallax {
       position: relative;
@@ -528,6 +535,36 @@
 
       window.addEventListener('scroll', pedir, { passive: true });
       window.addEventListener('resize', pedir);
+      actualizar();
+    })();
+
+    // Parallax dos títulos das secções: cada título desce mais devagar do que o resto da página
+    (function () {
+      var titulos = document.querySelectorAll('main h2');
+      if (!titulos.length) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var movel = window.matchMedia('(max-width: 720px)');
+      var pendente = false;
+
+      function actualizar() {
+        pendente = false;
+        var vh = window.innerHeight;
+        var amp = movel.matches ? 12 : 70;   // deslocação máxima em px (menor no telemóvel, onde o título fica por cima do texto)
+        titulos.forEach(function (h) {
+          var grelha = h.parentNode;           // a grelha não se move, por isso serve de referência estável
+          var r = grelha.getBoundingClientRect();
+          var meio = r.top + h.offsetHeight / 2;
+          if (meio < -200 || meio > vh + 200) return;   // longe do ecrã
+          var p = (meio - vh / 2) / (vh / 2 + h.offsetHeight / 2);
+          p = Math.max(-1, Math.min(1, p));
+          h.style.transform = 'translate3d(0,' + (-p * amp).toFixed(1) + 'px,0)';
+        });
+      }
+      function pedir() { if (!pendente) { pendente = true; requestAnimationFrame(actualizar); } }
+
+      window.addEventListener('scroll', pedir, { passive: true });
+      window.addEventListener('resize', pedir);
+      window.addEventListener('load', pedir);
       actualizar();
     })();
   </script>
