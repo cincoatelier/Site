@@ -27,9 +27,11 @@
     font-family:'IBM Plex Sans', sans-serif;
     min-height:100vh;
     display:flex;
-    justify-content:center;
-    padding:28px 16px 60px;
+    flex-direction:column;
+    align-items:center;
+    padding:0 16px 60px;
   }
+  body > .site-nav{ width:calc(100% + 32px); margin-bottom:28px; flex:none; }
   .sheet{
     width:100%;
     max-width:640px;
@@ -269,9 +271,44 @@
     h1{ font-size:23px; }
     .stamp{ width:138px; height:138px; }
   }
+
+/* ===== Menu do site (igual ao da página inicial) ===== */
+.site-nav{--sn-bg:#f5f3ef;--sn-text:#22211f;--sn-muted:#6e6a63;--sn-line:#d8d4cc;--sn-hover:#ebe8e2;
+  background:var(--sn-bg);border-bottom:1px solid var(--sn-line);position:relative;z-index:50;
+  font-family:Arial,Helvetica,sans-serif;line-height:1.65;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--sn-muted)}
+.site-nav .sn-in{width:min(calc(100% - 32px),1120px);margin:0 auto;padding:10px 0}
+.site-nav ul{list-style:none;margin:0;padding:0}
+.site-nav .sn-menu{display:flex;flex-wrap:wrap;align-items:center}
+.site-nav .sn-menu>li{position:relative;display:flex;align-items:center;margin:0;padding:0}
+.site-nav .sn-menu>li+li::before{content:"·";margin:0 .9em}
+.site-nav a,.site-nav button.sn-btn{font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;background:none;border:0;border-radius:0;
+  padding:6px 0;margin:0;cursor:pointer;text-decoration:none;box-shadow:none;transform:none}
+.site-nav a:hover,.site-nav button.sn-btn:hover,.site-nav .sn-menu>li.open>button.sn-btn{color:var(--sn-text);background:none}
+.site-nav .sn-caret::after{content:" ▾";font-size:.8em}
+.site-nav .sn-sub{display:none;position:absolute;top:100%;left:0;min-width:260px;max-width:calc(100vw - 32px);background:var(--sn-bg);
+  border:1px solid var(--sn-line);padding:8px 0;text-transform:none;letter-spacing:.01em;font-size:.9rem}
+.site-nav .sn-menu>li:hover>.sn-sub,.site-nav .sn-menu>li.open>.sn-sub,.site-nav .sn-menu>li:focus-within>.sn-sub{display:block}
+.site-nav .sn-sub a{display:block;padding:10px 20px;color:var(--sn-text)}
+.site-nav .sn-sub a:hover{background:var(--sn-hover)}
 </style>
 </head>
 <body>
+<nav class="site-nav" aria-label="Menu principal">
+  <div class="sn-in">
+    <ul class="sn-menu">
+      <li><a href="index.html#arquitectura">Arquitectura</a></li>
+      <li><a href="index.html#design">Design</a></li>
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li>
+        <button type="button" class="sn-btn sn-caret" aria-haspopup="true" aria-expanded="false">Ferramentas para o ajudar</button>
+        <ul class="sn-sub">
+          <li><a href="Questionario.html">Quiz - Qual o teu estilo</a></li>
+          <li><a href="analiseplanta.html">Questionário para análise inicial da sua planta</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
 <div class="sheet">
   <header>
     <div class="eyebrow"><span>Cinco Atelier</span><span id="stepCounter">01 / 04</span></div>
@@ -675,6 +712,27 @@
   updateNav();
   updateProgress();
 })();
+</script>
+<script>
+  // Menu do site: abre/fecha ao toque e fecha ao clicar fora
+  (function () {
+    var items = document.querySelectorAll('.site-nav .sn-menu > li');
+    items.forEach(function (li) {
+      var btn = li.querySelector(':scope > button');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = li.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    });
+    document.addEventListener('click', function () {
+      items.forEach(function (li) {
+        var b = li.querySelector(':scope > button');
+        if (b) { li.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }
+      });
+    });
+  })();
 </script>
 </body>
 </html>
