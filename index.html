@@ -173,11 +173,26 @@
       margin-bottom: 0;
     }
 
-    .foto {
-      display: block;
-      width: 100%;
-      height: auto;
+    /* Parallax: a moldura corta a imagem e a imagem move-se mais devagar do que a página */
+    .parallax {
+      position: relative;
+      overflow: hidden;
       margin-top: 42px;
+      aspect-ratio: 3 / 2;
+    }
+
+    .parallax .foto {
+      position: absolute;
+      left: 0;
+      top: -15%;
+      width: 100%;
+      height: 130%;
+      object-fit: cover;
+      will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .parallax .foto { top: 0; height: 100%; transform: none !important; }
     }
 
     .highlight {
@@ -233,6 +248,10 @@
 
       .highlight {
         padding: 28px;
+      }
+
+      .parallax {
+        aspect-ratio: 4 / 3;
       }
     }
   </style>
@@ -296,8 +315,10 @@
             ao detalhe.
           </p>
 
-          <img class="foto" src="final6.jpg" width="1024" height="1024" loading="lazy"
+          <div class="parallax">
+            <img class="foto" src="final6.jpg" width="1024" height="1024" loading="lazy"
                alt="Vista nocturna de um edifício de linhas curvas, com janelas iluminadas na fachada, rodeado de árvores e relvado.">
+          </div>
         </div>
       </div>
     </section>
@@ -448,6 +469,32 @@
           no.parentNode.replaceChild(frag, no);
         });
       });
+    })();
+
+    // Parallax scrolling: a imagem desloca-se mais devagar do que a página, dentro da sua moldura
+    (function () {
+      var moldura = document.querySelector('.parallax');
+      if (!moldura) return;
+      var img = moldura.querySelector('.foto');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var pendente = false;
+
+      function actualizar() {
+        pendente = false;
+        var r = moldura.getBoundingClientRect();
+        var vh = window.innerHeight;
+        if (r.bottom < 0 || r.top > vh) return;            // fora do ecrã
+        var extra = img.offsetHeight - moldura.offsetHeight; // parte da imagem escondida
+        // -1 (moldura a entrar por baixo) ... +1 (a sair por cima)
+        var p = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
+        img.style.transform = 'translate3d(0,' + (-p * extra / 2).toFixed(1) + 'px,0)';
+      }
+      function pedir() { if (!pendente) { pendente = true; requestAnimationFrame(actualizar); } }
+
+      window.addEventListener('scroll', pedir, { passive: true });
+      window.addEventListener('resize', pedir);
+      window.addEventListener('load', pedir);
+      actualizar();
     })();
   </script>
 </body>
