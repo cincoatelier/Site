@@ -222,8 +222,7 @@
       position: relative;
       z-index: 1;
       background: var(--bg);   /* tapa a imagem de cima à medida que sobe */
-      margin-top: 16px;
-      padding-top: 80px;
+      padding-top: 120px;      /* espaço por cima da linha, igual ao das secções */
     }
 
     .titulo-portfolio {
@@ -232,6 +231,8 @@
       letter-spacing: -.04em;
       font-weight: 500;
       margin: 0 0 32px;
+      border-top: 1px solid var(--line);   /* linha igual à que separa as secções */
+      padding-top: 120px;                  /* espaço por baixo da linha, igual ao das secções */
     }
 
     .masonry {
@@ -369,7 +370,11 @@
       }
 
       .portfolio {
-        padding-top: 56px;
+        padding-top: 80px;
+      }
+
+      .titulo-portfolio {
+        padding-top: 80px;
       }
 
       .subtitulo {
@@ -483,8 +488,8 @@
                alt="Vista nocturna de um edifício de linhas curvas, com janelas iluminadas na fachada, rodeado de árvores e relvado.">
           </div>
 
-          <div class="portfolio" id="portfolio">
-            <h3 class="titulo-portfolio">Portfolio</h3>
+          <div class="portfolio">
+            <h3 class="titulo-portfolio" id="portfolio">Portfolio</h3>
             <div class="masonry">
               <figure><img src="imagens/projecto-01.jpg" alt="projecto 1" loading="lazy" decoding="async"></figure>
               <figure><img src="imagens/projecto-02.jpg" alt="projecto 2" loading="lazy" decoding="async"></figure>
@@ -745,7 +750,7 @@
         var h = moldura.offsetHeight;
         var topo = grelha.getBoundingClientRect().top;
         // 0 = a grelha ainda não chegou à imagem · 1 = a grelha chegou ao topo do ecrã
-        var c = Math.max(0, Math.min(1, (h + 16 - topo) / h));
+        var c = Math.max(0, Math.min(1, (h - topo) / h));
         moldura.style.opacity = Math.max(0, 1 - c * 1.4).toFixed(3);
       }
       function pedir() { if (!pendente) { pendente = true; requestAnimationFrame(actualizar); } }
