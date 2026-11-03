@@ -169,11 +169,12 @@
 
     /* Texto do capítulo Arquitectura */
     .lead {
-      max-width: 900px;
-      font-size: clamp(1.25rem, 2.5vw, 1.8rem);
-      line-height: 1.4;
-      letter-spacing: -.02em;
-      margin-bottom: 32px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .72rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 24px;
     }
 
     .subtitulo {
@@ -208,7 +209,7 @@
     /* variante de uma só coluna: título em cima, texto e imagem em baixo */
     .section-grid.coluna {
       grid-template-columns: 1fr;
-      gap: 100px;   /* espaço suficiente para o título se mover (parallax) sem tocar no texto */
+      gap: 50px;   /* espaço entre o título e o texto */
     }
 
     .coluna .parallax {
@@ -353,10 +354,14 @@
         padding: 80px 0;
       }
 
-      .section-grid,
-      .section-grid.coluna {
+      .section-grid {
         grid-template-columns: 1fr;
         gap: 28px;
+      }
+
+      .section-grid.coluna {
+        grid-template-columns: 1fr;
+        gap: 14px;
       }
 
       .highlight {
@@ -709,7 +714,7 @@
         pendente = false;
         var vh = window.innerHeight;
         titulos.forEach(function (h) {
-          var amp = movel.matches ? 12 : 70;   // deslocação máxima em px (menor no telemóvel, onde o título fica por cima do texto)
+          var amp = movel.matches ? 12 : (h.parentNode.classList.contains('coluna') ? 45 : 70);   // deslocação máxima em px (menor no telemóvel, onde o título fica por cima do texto)
           var grelha = h.parentNode;           // a grelha não se move, por isso serve de referência estável
           var r = grelha.getBoundingClientRect();
           var meio = r.top + h.offsetHeight / 2;
@@ -753,5 +758,3 @@
   </script>
 </body>
 </html>
-
-
