@@ -167,6 +167,44 @@
       gap: 60px;
     }
 
+    /* Texto do capítulo Arquitectura */
+    .lead {
+      max-width: 900px;
+      font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+      line-height: 1.4;
+      letter-spacing: -.02em;
+      margin-bottom: 32px;
+    }
+
+    .subtitulo {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .72rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 72px 0 24px;
+    }
+
+    .servico {
+      margin-bottom: 32px;
+    }
+
+    .servico:last-child { margin-bottom: 0; }
+
+    .servico h4 {
+      margin: 0 0 6px;
+      font-size: 1.04rem;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    .servico-num {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .servico p { margin: 0; }
+
     /* variante de uma só coluna: título em cima, texto e imagem em baixo */
     .section-grid.coluna {
       grid-template-columns: 1fr;
@@ -175,16 +213,29 @@
 
     .coluna .parallax {
       aspect-ratio: 16 / 9;
+      margin-top: 80px;
     }
 
     /* Grelha masonry: colunas com imagens de alturas diferentes encaixadas umas nas outras */
-    .masonry {
+    .portfolio {
       position: relative;
       z-index: 1;
       background: var(--bg);   /* tapa a imagem de cima à medida que sobe */
+      margin-top: 16px;
+      padding-top: 80px;
+    }
+
+    .titulo-portfolio {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.1;
+      letter-spacing: -.04em;
+      font-weight: 500;
+      margin: 0 0 32px;
+    }
+
+    .masonry {
       column-count: 3;
       column-gap: 16px;
-      margin-top: 16px;
     }
 
     .masonry figure {
@@ -312,6 +363,18 @@
         padding: 28px;
       }
 
+      .portfolio {
+        padding-top: 56px;
+      }
+
+      .subtitulo {
+        margin-top: 56px;
+      }
+
+      .coluna .parallax {
+        margin-top: 56px;
+      }
+
       .masonry {
         column-count: 2;
         column-gap: 10px;
@@ -371,20 +434,43 @@
       <div class="section-grid coluna">
         <h2>Arquitectura</h2>
         <div>
+          <p class="lead">Concebemos, transformamos e valorizamos espaços.</p>
           <p>
-          Desenvolvemos projectos de arquitectura, interiores e design de espaços, desde a concepção de raiz à transformação e 
-            valorização de espaços existentes.
+            Desenvolvemos projectos de arquitectura e design de espaços, abrangendo desde a concepção de edifícios e espaços interiores à remodelação, reabilitação e decoração de espaços existentes.
           </p>
           <p>
-            Acompanhamos cada projecto de forma integrada, da definição do conceito à concretização, 
-            procurando soluções que conciliem funcionalidade, estética e identidade. 
-            A nossa abordagem parte das necessidades de cada cliente, das características de cada espaço e dos objectivos a alcançar, 
-            com criatividade, rigor técnico e atenção ao detalhe.  
+            Cada projecto é pensado à medida das necessidades e expectativas de quem nos procura. Através de uma abordagem integrada, conciliamos criatividade, funcionalidade e rigor técnico, procurando tirar o melhor partido de cada espaço, respeitando a sua identidade, o seu contexto e a sua finalidade.
           </p>
           <p>
-            A nossa abordagem procura responder às necessidades específicas de
-            cada cliente, conciliando criatividade, funcionalidade e atenção
-            ao detalhe.
+            Acompanhamos cada desafio desde a ideia inicial até à definição das soluções, com especial atenção à qualidade arquitectónica, à escolha dos materiais, à organização dos espaços e ao detalhe.
+          </p>
+
+          <h3 class="subtitulo">Os nossos serviços</h3>
+          <div class="servicos">
+            <div class="servico">
+              <h4><span class="servico-num">01.</span> Arquitectura de Edifícios</h4>
+              <p>Desenvolvimento de projectos de arquitectura para construção nova, ampliação, reabilitação e alteração de edifícios. Desde os estudos iniciais à definição das soluções arquitectónicas, procuramos responder às necessidades funcionais, técnicas e estéticas de cada projecto.</p>
+            </div>
+            <div class="servico">
+              <h4><span class="servico-num">02.</span> Arquitectura de Interiores</h4>
+              <p>Concepção e desenvolvimento de projectos de espaços interiores, residenciais, comerciais e empresariais. Trabalhamos a organização espacial, a funcionalidade, a iluminação, os materiais e os acabamentos, criando ambientes coerentes com a sua utilização e identidade.</p>
+            </div>
+            <div class="servico">
+              <h4><span class="servico-num">03.</span> Decoração</h4>
+              <p>Criação e composição de ambientes através da selecção de mobiliário, peças decorativas, materiais, revestimentos, cores, tecidos e iluminação. Desenvolvemos soluções personalizadas que valorizam os espaços e lhes conferem carácter, conforto e harmonia.</p>
+            </div>
+            <div class="servico">
+              <h4><span class="servico-num">04.</span> Remodelação e Reabilitação</h4>
+              <p>Transformação e renovação de espaços existentes, adaptando-os a novas necessidades e formas de utilização. Desenvolvemos soluções que optimizam a funcionalidade, renovam a imagem e valorizam o espaço, respeitando as suas características e potencialidades.</p>
+            </div>
+          </div>
+
+          <h3 class="subtitulo">Uma abordagem à medida de cada projecto</h3>
+          <p>
+            Cada projecto tem necessidades e desafios próprios. Por isso, disponibilizamos serviços que podem ser desenvolvidos de forma autónoma ou integrada, ajustando o âmbito da nossa intervenção aos objectivos e às necessidades de cada cliente.
+          </p>
+          <p>
+            Desde uma intervenção pontual de decoração à concepção e transformação integral de edifícios e espaços, procuramos encontrar soluções que acrescentem valor, qualidade e identidade a cada projecto.
           </p>
 
           <div class="parallax">
@@ -392,17 +478,20 @@
                alt="Vista nocturna de um edifício de linhas curvas, com janelas iluminadas na fachada, rodeado de árvores e relvado.">
           </div>
 
-          <div class="masonry">
-            <figure><img src="imagens/projecto-01.jpg" alt="projecto 1" loading="lazy" decoding="async"></figure>
-            <figure><img src="imagens/projecto-02.jpg" alt="projecto 2" loading="lazy" decoding="async"></figure>
-            <figure><img src="imagens/projecto-03.jpg" alt="projecto 3" loading="lazy" decoding="async"></figure>
-            <figure><img src="imagens/projecto-04.jpg" alt="projecto 4" loading="lazy" decoding="async"></figure>
-            <figure><img src="imagens/projecto-05.jpg" alt="projecto 5" loading="lazy" decoding="async"></figure>
-            <figure><img src="imagens/projecto-06.jpg" alt="projecto 6" loading="lazy" decoding="async"></figure>
-            <figure><img src="imagens/projecto-07.jpg" alt="projecto 7" loading="lazy" decoding="async"></figure>
-            <figure><img src="imagens/projecto-08.jpg" alt="projecto 8" loading="lazy" decoding="async"></figure>
-            <figure><img src="imagens/projecto-09.jpg" alt="projecto 9" loading="lazy" decoding="async"></figure>
-            <figure><img src="imagens/projecto-10.jpg" alt="projecto 10" loading="lazy" decoding="async"></figure>
+          <div class="portfolio" id="portfolio">
+            <h3 class="titulo-portfolio">Portfolio</h3>
+            <div class="masonry">
+              <figure><img src="imagens/projecto-01.jpg" alt="projecto 1" loading="lazy" decoding="async"></figure>
+              <figure><img src="imagens/projecto-02.jpg" alt="projecto 2" loading="lazy" decoding="async"></figure>
+              <figure><img src="imagens/projecto-03.jpg" alt="projecto 3" loading="lazy" decoding="async"></figure>
+              <figure><img src="imagens/projecto-04.jpg" alt="projecto 4" loading="lazy" decoding="async"></figure>
+              <figure><img src="imagens/projecto-05.jpg" alt="projecto 5" loading="lazy" decoding="async"></figure>
+              <figure><img src="imagens/projecto-06.jpg" alt="projecto 6" loading="lazy" decoding="async"></figure>
+              <figure><img src="imagens/projecto-07.jpg" alt="projecto 7" loading="lazy" decoding="async"></figure>
+              <figure><img src="imagens/projecto-08.jpg" alt="projecto 8" loading="lazy" decoding="async"></figure>
+              <figure><img src="imagens/projecto-09.jpg" alt="projecto 9" loading="lazy" decoding="async"></figure>
+              <figure><img src="imagens/projecto-10.jpg" alt="projecto 10" loading="lazy" decoding="async"></figure>
+            </div>
           </div>
         </div>
       </div>
@@ -538,7 +627,7 @@
   
     // Efeito nas palavras: cada palavra fica num elemento próprio para poder reagir ao cursor
     (function () {
-      var alvos = document.querySelectorAll('.brand, .intro, h2, main p, footer .container');
+      var alvos = document.querySelectorAll('.brand, .intro, h2, .titulo-portfolio, .subtitulo, .servico h4, .servico-num, main p, footer .container');
       alvos.forEach(function (el) {
         var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
         var nos = [];
@@ -641,7 +730,7 @@
     // A imagem grande desaparece quando a grelha masonry sobe por cima dela
     (function () {
       var moldura = document.querySelector('.parallax');
-      var grelha = document.querySelector('.masonry');
+      var grelha = document.querySelector('.portfolio');
       if (!moldura || !grelha) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       var pendente = false;
