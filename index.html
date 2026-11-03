@@ -167,6 +167,35 @@
       gap: 60px;
     }
 
+    /* variante de uma só coluna: título em cima, texto e imagem em baixo */
+    .section-grid.coluna {
+      grid-template-columns: 1fr;
+      gap: 100px;   /* espaço suficiente para o título se mover (parallax) sem tocar no texto */
+    }
+
+    .coluna .parallax {
+      aspect-ratio: 16 / 9;
+    }
+
+    /* Grelha masonry: colunas com imagens de alturas diferentes encaixadas umas nas outras */
+    .masonry {
+      column-count: 3;
+      column-gap: 16px;
+      margin-top: 16px;
+    }
+
+    .masonry figure {
+      margin: 0 0 16px;
+      break-inside: avoid;
+      background: var(--line);
+    }
+
+    .masonry img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     h2 {
       font-size: clamp(1.5rem, 3vw, 2.4rem);
       line-height: 1.1;
@@ -267,7 +296,8 @@
         padding: 80px 0;
       }
 
-      .section-grid {
+      .section-grid,
+      .section-grid.coluna {
         grid-template-columns: 1fr;
         gap: 28px;
       }
@@ -276,7 +306,17 @@
         padding: 28px;
       }
 
-      .parallax {
+      .masonry {
+        column-count: 2;
+        column-gap: 10px;
+      }
+
+      .masonry figure {
+        margin-bottom: 10px;
+      }
+
+      .parallax,
+      .coluna .parallax {
         aspect-ratio: 4 / 3;
       }
     }
@@ -322,7 +362,7 @@
   <main class="container">
 
     <section id="arquitectura">
-      <div class="section-grid">
+      <div class="section-grid coluna">
         <h2>Arquitectura</h2>
         <div>
           <p>
@@ -344,6 +384,19 @@
           <div class="parallax">
             <img class="foto" src="final6.jpg" width="1024" height="1024" loading="lazy"
                alt="Vista nocturna de um edifício de linhas curvas, com janelas iluminadas na fachada, rodeado de árvores e relvado.">
+          </div>
+
+          <div class="masonry">
+            <figure><img src="imagens/projecto-01.jpg" alt="Projecto 1" loading="lazy" decoding="async"></figure>
+            <figure><img src="imagens/projecto-02.jpg" alt="Projecto 2" loading="lazy" decoding="async"></figure>
+            <figure><img src="imagens/projecto-03.jpg" alt="Projecto 3" loading="lazy" decoding="async"></figure>
+            <figure><img src="imagens/projecto-04.jpg" alt="Projecto 4" loading="lazy" decoding="async"></figure>
+            <figure><img src="imagens/projecto-05.jpg" alt="Projecto 5" loading="lazy" decoding="async"></figure>
+            <figure><img src="imagens/projecto-06.jpg" alt="Projecto 6" loading="lazy" decoding="async"></figure>
+            <figure><img src="imagens/projecto-07.jpg" alt="Projecto 7" loading="lazy" decoding="async"></figure>
+            <figure><img src="imagens/projecto-08.jpg" alt="Projecto 8" loading="lazy" decoding="async"></figure>
+            <figure><img src="imagens/projecto-09.jpg" alt="Projecto 9" loading="lazy" decoding="async"></figure>
+            <figure><img src="imagens/projecto-10.jpg" alt="Projecto 10" loading="lazy" decoding="async"></figure>
           </div>
         </div>
       </div>
@@ -560,8 +613,8 @@
       function actualizar() {
         pendente = false;
         var vh = window.innerHeight;
-        var amp = movel.matches ? 12 : 70;   // deslocação máxima em px (menor no telemóvel, onde o título fica por cima do texto)
         titulos.forEach(function (h) {
+          var amp = movel.matches ? 12 : 70;   // deslocação máxima em px (menor no telemóvel, onde o título fica por cima do texto)
           var grelha = h.parentNode;           // a grelha não se move, por isso serve de referência estável
           var r = grelha.getBoundingClientRect();
           var meio = r.top + h.offsetHeight / 2;
