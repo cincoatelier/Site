@@ -179,6 +179,9 @@
 
     /* Grelha masonry: colunas com imagens de alturas diferentes encaixadas umas nas outras */
     .masonry {
+      position: relative;
+      z-index: 1;
+      background: var(--bg);   /* tapa a imagem de cima à medida que sobe */
       column-count: 3;
       column-gap: 16px;
       margin-top: 16px;
@@ -230,7 +233,9 @@
 
     /* Parallax: a moldura corta a imagem e a imagem move-se mais devagar do que a página */
     .parallax {
-      position: relative;
+      position: sticky;      /* fica no topo do ecrã enquanto a grelha masonry sobe por cima */
+      top: 0;
+      z-index: 0;
       overflow: hidden;
       margin-top: 42px;
       aspect-ratio: 3 / 2;
@@ -247,6 +252,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+      .parallax { position: relative; }
       .parallax .foto { top: 0; height: 100%; transform: none !important; }
     }
 
@@ -623,6 +629,30 @@
           p = Math.max(-1, Math.min(1, p));
           h.style.transform = 'translate3d(0,' + (-p * amp).toFixed(1) + 'px,0)';
         });
+      }
+      function pedir() { if (!pendente) { pendente = true; requestAnimationFrame(actualizar); } }
+
+      window.addEventListener('scroll', pedir, { passive: true });
+      window.addEventListener('resize', pedir);
+      window.addEventListener('load', pedir);
+      actualizar();
+    })();
+
+    // A imagem grande desaparece quando a grelha masonry sobe por cima dela
+    (function () {
+      var moldura = document.querySelector('.parallax');
+      var grelha = document.querySelector('.masonry');
+      if (!moldura || !grelha) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var pendente = false;
+
+      function actualizar() {
+        pendente = false;
+        var h = moldura.offsetHeight;
+        var topo = grelha.getBoundingClientRect().top;
+        // 0 = a grelha ainda não chegou à imagem · 1 = a grelha chegou ao topo do ecrã
+        var c = Math.max(0, Math.min(1, (h + 16 - topo) / h));
+        moldura.style.opacity = Math.max(0, 1 - c * 1.4).toFixed(3);
       }
       function pedir() { if (!pendente) { pendente = true; requestAnimationFrame(actualizar); } }
 
