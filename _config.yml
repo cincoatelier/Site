@@ -1,0 +1,18 @@
+# Configuração do blog do cinco atelier (Jekyll no GitHub Pages)
+title: cinco atelier
+description: Notas sobre projecto, obra e as decisões por trás de cada espaço.
+lang: pt-PT
+timezone: Europe/Lisbon
+
+# Endereço dos artigos: /blog/2026/11/titulo-do-artigo/
+permalink: /blog/:year/:month/:title/
+
+# Troque pelo nome de utilizador do atelier no Instagram (sem @)
+instagram_user: "SEU_UTILIZADOR"
+
+# Só descomente se o site estiver num repositório de projecto
+# (endereço do tipo utilizador.github.io/nome-do-repositorio)
+# baseurl: "/nome-do-repositorio"
+
+exclude:
+  - README.md

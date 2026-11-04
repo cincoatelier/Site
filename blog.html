@@ -1,0 +1,28 @@
+---
+layout: atelier
+title: Blog
+resumo: Notas sobre projecto, obra e as decisões por trás de cada espaço.
+permalink: /blog.html
+---
+<section class="cabecalho">
+  <h1>Blog</h1>
+  <p>Notas sobre projecto, obra e as decisões por trás de cada espaço.</p>
+</section>
+
+{% if site.posts.size > 0 %}
+<ul class="lista">
+  {% for post in site.posts %}
+  <li>
+    {% include data-pt.html data=post.date %}
+    <div>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.resumo | default: post.excerpt | strip_html | strip | truncatewords: 35 }}</p>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="vazio">Ainda não há artigos publicados. O primeiro chega em breve.</p>
+{% endif %}
+
+{% include instagram-feed.html %}
