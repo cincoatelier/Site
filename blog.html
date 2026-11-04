@@ -1,28 +1,123 @@
----
-layout: atelier
-title: Blog
-resumo: Notas sobre projecto, obra e as decisões por trás de cada espaço.
-permalink: /blog.html
----
-<section class="cabecalho">
-  <h1>Blog</h1>
-  <p>Notas sobre projecto, obra e as decisões por trás de cada espaço.</p>
-</section>
-
-{% if site.posts.size > 0 %}
-<ul class="lista">
-  {% for post in site.posts %}
-  <li>
-    {% include data-pt.html data=post.date %}
-    <div>
-      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-      <p>{{ post.resumo | default: post.excerpt | strip_html | strip | truncatewords: 35 }}</p>
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — cinco atelier</title>
+  <meta name="description" content="Ideias, dicas e bastidores do cinco atelier: arquitectura, design e espaços.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <style>
+    :root { --bg:#f5f3ef; --text:#22211f; --muted:#6e6a63; --line:#d8d4cc; --max:1120px;
+      --cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 6v36M6 24h36' stroke='white' stroke-width='4' fill='none'/%3E%3Cpath d='M24 6v36M6 24h36' stroke='black' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") 24 24, crosshair; }
+    * { box-sizing: border-box; }
+    *, *::before, *::after { cursor: var(--cursor) !important; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Arial,Helvetica,sans-serif; line-height:1.65; }
+    a { color: inherit; }
+    .container { width:min(calc(100% - 48px), var(--max)); margin:0 auto; }
+    header { border-bottom:1px solid var(--line); }
+    .hero { padding:36px 0 56px; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; color:var(--muted); margin-bottom:22px; position:relative; z-index:20; }
+    .menu, .menu ul { list-style:none; margin:0; padding:0; }
+    .menu { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; }
+    .menu > li { position:relative; display:flex; align-items:center; }
+    .menu > li + li::before { content:"·"; margin:0 .9em; }
+    .menu a, .menu button { font:inherit; letter-spacing:inherit; text-transform:inherit; color:inherit; background:none; border:0; padding:6px 0; text-decoration:none; }
+    .menu a:hover, .menu button:hover, .menu li.open > button, .menu a[aria-current="page"] { color:var(--text); }
+    .menu a:hover, .menu button:hover { text-decoration:underline; text-underline-offset:.35em; }
+    .menu .caret::after { content:" ▾"; font-size:.8em; }
+    .submenu { display:none; position:absolute; top:100%; right:0; min-width:260px; max-width:calc(100vw - 32px); background:var(--bg); border:1px solid var(--line); padding:8px 0; text-transform:none; letter-spacing:.01em; font-size:.9rem; }
+    .menu > li:hover > .submenu, .menu > li.open > .submenu, .menu > li:focus-within > .submenu { display:block; }
+    .submenu a { display:block; padding:10px 20px; color:var(--text); }
+    .submenu a:hover { background:#ebe8e2; text-decoration:none; }
+    .titulo { font-size:clamp(3.5rem,11vw,9rem); line-height:.9; letter-spacing:-.07em; font-weight:500; margin:56px 0 28px; }
+    .intro { max-width:780px; font-size:1.04rem; margin:0; }
+    .artigos { list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+    .artigos li { display:grid; grid-template-columns:200px 1fr; gap:8px 32px; padding:32px 0; border-bottom:1px solid var(--line); }
+    .data { color:var(--muted); font-size:.85rem; letter-spacing:.04em; padding-top:6px; }
+    .artigos h2 { font-size:clamp(1.4rem,3vw,2rem); line-height:1.2; letter-spacing:-.02em; font-weight:500; margin:0 0 10px; }
+    .artigos h2 a { text-decoration:none; }
+    .artigos h2 a:hover { text-decoration:underline; text-underline-offset:.25em; }
+    .artigos p { margin:0; color:var(--muted); max-width:640px; }
+    main { padding:56px 0 24px; }
+    .instagram { padding:56px 0 24px; }
+    .instagram h2 { font-size:clamp(1.4rem,3vw,2rem); font-weight:500; letter-spacing:-.02em; margin:0 0 8px; }
+    .instagram p { color:var(--muted); margin:0 0 22px; }
+    .botao { display:inline-block; border:1px solid var(--text); padding:12px 22px; text-decoration:none; font-size:.9rem; }
+    .botao:hover { background:var(--text); color:var(--bg); }
+    .artigo { max-width:680px; }
+    .artigo h1 { font-size:clamp(2.2rem,6vw,4rem); line-height:1.05; letter-spacing:-.05em; font-weight:500; margin:56px 0 14px; }
+    .artigo .data { padding:0; margin-bottom:40px; }
+    .artigo h2 { font-size:1.4rem; font-weight:500; letter-spacing:-.01em; margin:36px 0 8px; }
+    .artigo p { margin:0 0 18px; font-size:1.04rem; line-height:1.75; }
+    .artigo a { text-decoration:underline; text-underline-offset:.25em; }
+    .voltar { margin-top:48px; font-size:.9rem; }
+    footer { border-top:1px solid var(--line); padding:28px 0 40px; color:var(--muted); font-size:.85rem; margin-top:56px; }
+    @media (max-width:640px) { .artigos li { grid-template-columns:1fr; } .data { padding-top:0; } .menu { justify-content:flex-start; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container hero">
+      <nav class="eyebrow" aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="index.html">05AT</a></li>
+          <li><a href="index.html#arquitectura">Arquitectura</a></li>
+          <li><a href="index.html#design">Store Design</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="blog.html" aria-current="page">Blog</a></li>
+          <li>
+            <button type="button" class="caret" aria-haspopup="true" aria-expanded="false">Ferramentas para o ajudar</button>
+            <ul class="submenu">
+              <li><a href="Questionario.html">Quiz - Qual o teu estilo</a></li>
+              <li><a href="analiseplanta.html">Questionário para análise inicial da sua planta</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <h1 class="titulo">blog</h1>
+      <p class="intro">Ideias, dicas e bastidores do nosso trabalho: como pensamos um espaço, o que ver numa planta, o que acontece em obra.</p>
     </div>
-  </li>
-  {% endfor %}
-</ul>
-{% else %}
-<p class="vazio">Ainda não há artigos publicados. O primeiro chega em breve.</p>
-{% endif %}
+  </header>
 
-{% include instagram-feed.html %}
+  <main class="container">
+    <!-- ARTIGOS: para acrescentar um novo, copie um bloco <li> inteiro para o topo da lista -->
+    <ul class="artigos">
+      <li>
+        <span class="data">4 de novembro de 2026</span>
+        <div>
+          <h2><a href="blog-planta.html">O que olhar numa planta antes de comprar ou arrendar</a></h2>
+          <p>Antes de assinar, a planta já diz muito sobre como vai ser viver no espaço. Estas são as perguntas que fazemos primeiro.</p>
+        </div>
+      </li>
+    </ul>
+
+    <section class="instagram">
+      <h2>Siga-nos no Instagram</h2>
+      <p>Obras, maquetas e o dia a dia do atelier.</p>
+      <a class="botao" href="https://www.instagram.com/SEU_UTILIZADOR/" target="_blank" rel="noopener">Ver o Instagram</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">cinco atelier · Arquitectura, Design e Espaços</div>
+  </footer>
+  <script>
+    // Menu: abre/fecha ao toque (telemóvel) e fecha ao clicar fora
+    document.querySelectorAll('.menu > li').forEach(function (li) {
+      var btn = li.querySelector(':scope > button');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = li.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    });
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.menu > li').forEach(function (li) {
+        var b = li.querySelector(':scope > button');
+        if (b) { li.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }
+      });
+    });
+  </script>
+</body>
+</html>
