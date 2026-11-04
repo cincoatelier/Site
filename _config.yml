@@ -8,11 +8,11 @@ timezone: Europe/Lisbon
 permalink: /blog/:year/:month/:title/
 
 # Troque pelo nome de utilizador do atelier no Instagram (sem @)
-instagram_user: "cinco_atelier"
+instagram_user: "SEU_UTILIZADOR"
 
 # Só descomente se o site estiver num repositório de projecto
 # (endereço do tipo utilizador.github.io/nome-do-repositorio)
-# baseurl: "/site"
+# baseurl: "/nome-do-repositorio"
 
 exclude:
   - README.md
