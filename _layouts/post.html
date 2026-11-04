@@ -1,0 +1,18 @@
+---
+layout: atelier
+---
+<article class="artigo">
+  <h1>{{ page.title }}</h1>
+  <p class="data">{% include data-pt.html data=page.date %}</p>
+
+  {{ content }}
+
+  {% if page.instagram %}
+  <div class="instagram-post">
+    <blockquote class="instagram-media" data-instgrm-permalink="{{ page.instagram }}?utm_source=ig_embed" data-instgrm-version="14" style="max-width:540px; width:100%; margin:0 auto;"></blockquote>
+    <script async src="//www.instagram.com/embed.js"></script>
+  </div>
+  {% endif %}
+
+  <p class="voltar"><a href="{{ '/blog.html' | relative_url }}">Voltar ao blog</a></p>
+</article>
