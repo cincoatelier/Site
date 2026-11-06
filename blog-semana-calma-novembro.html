@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana calma na arquitectura, com novembro a aquecer logo a seguir — blog cinco atelier</title>
+  <meta name="description" content="A semana de 7 a 13 de novembro é discreta no calendário da arquitectura em Portugal, mas é a antecâmara de um final de ano carregado.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <style>
+    :root { --bg:#f5f3ef; --text:#22211f; --muted:#6e6a63; --line:#d8d4cc; --max:1120px;
+      --cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 6v36M6 24h36' stroke='white' stroke-width='4' fill='none'/%3E%3Cpath d='M24 6v36M6 24h36' stroke='black' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") 24 24, crosshair; }
+    * { box-sizing: border-box; }
+    *, *::before, *::after { cursor: var(--cursor) !important; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Arial,Helvetica,sans-serif; line-height:1.65; }
+    a { color: inherit; }
+    .container { width:min(calc(100% - 48px), var(--max)); margin:0 auto; }
+    header { border-bottom:1px solid var(--line); }
+    .hero { padding:36px 0 56px; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; color:var(--muted); margin-bottom:22px; position:relative; z-index:20; }
+    .menu, .menu ul { list-style:none; margin:0; padding:0; }
+    .menu { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; }
+    .menu > li { position:relative; display:flex; align-items:center; }
+    .menu > li + li::before { content:"·"; margin:0 .9em; }
+    .menu a, .menu button { font:inherit; letter-spacing:inherit; text-transform:inherit; color:inherit; background:none; border:0; padding:6px 0; text-decoration:none; }
+    .menu a:hover, .menu button:hover, .menu li.open > button, .menu a[aria-current="page"] { color:var(--text); }
+    .menu a:hover, .menu button:hover { text-decoration:underline; text-underline-offset:.35em; }
+    .menu .caret::after { content:" ▾"; font-size:.8em; }
+    .submenu { display:none; position:absolute; top:100%; right:0; min-width:260px; max-width:calc(100vw - 32px); background:var(--bg); border:1px solid var(--line); padding:8px 0; text-transform:none; letter-spacing:.01em; font-size:.9rem; }
+    .menu > li:hover > .submenu, .menu > li.open > .submenu, .menu > li:focus-within > .submenu { display:block; }
+    .submenu a { display:block; padding:10px 20px; color:var(--text); }
+    .submenu a:hover { background:#ebe8e2; text-decoration:none; }
+    .titulo { font-size:clamp(3.5rem,11vw,9rem); line-height:.9; letter-spacing:-.07em; font-weight:500; margin:56px 0 28px; }
+    .intro { max-width:780px; font-size:1.04rem; margin:0; }
+    .artigos { list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+    .artigos li { display:grid; grid-template-columns:200px 1fr; gap:8px 32px; padding:32px 0; border-bottom:1px solid var(--line); }
+    .data { color:var(--muted); font-size:.85rem; letter-spacing:.04em; padding-top:6px; }
+    .artigos h2 { font-size:clamp(1.4rem,3vw,2rem); line-height:1.2; letter-spacing:-.02em; font-weight:500; margin:0 0 10px; }
+    .artigos h2 a { text-decoration:none; }
+    .artigos h2 a:hover { text-decoration:underline; text-underline-offset:.25em; }
+    .artigos p { margin:0; color:var(--muted); max-width:640px; }
+    main { padding:56px 0 24px; }
+    .instagram { padding:56px 0 24px; }
+    .instagram h2 { font-size:clamp(1.4rem,3vw,2rem); font-weight:500; letter-spacing:-.02em; margin:0 0 8px; }
+    .instagram p { color:var(--muted); margin:0 0 22px; }
+    .botao { display:inline-block; border:1px solid var(--text); padding:12px 22px; text-decoration:none; font-size:.9rem; }
+    .botao:hover { background:var(--text); color:var(--bg); }
+    .artigo { max-width:680px; }
+    .artigo h1 { font-size:clamp(2.2rem,6vw,4rem); line-height:1.05; letter-spacing:-.05em; font-weight:500; margin:56px 0 14px; }
+    .artigo .data { padding:0; margin-bottom:40px; }
+    .artigo h2 { font-size:1.4rem; font-weight:500; letter-spacing:-.01em; margin:36px 0 8px; }
+    .artigo p { margin:0 0 18px; font-size:1.04rem; line-height:1.75; }
+    .artigo a { text-decoration:underline; text-underline-offset:.25em; }
+    .voltar { margin-top:48px; font-size:.9rem; }
+    footer { border-top:1px solid var(--line); padding:28px 0 40px; color:var(--muted); font-size:.85rem; margin-top:56px; }
+    @media (max-width:640px) { .artigos li { grid-template-columns:1fr; } .data { padding-top:0; } .menu { justify-content:flex-start; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container hero">
+      <nav class="eyebrow" aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="index.html">05AT</a></li>
+          <li><a href="index.html#arquitectura">Arquitectura</a></li>
+          <li><a href="index.html#design">Store Design</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="blog.html" aria-current="page">Blog</a></li>
+          <li>
+            <button type="button" class="caret" aria-haspopup="true" aria-expanded="false">Ferramentas para o ajudar</button>
+            <ul class="submenu">
+              <li><a href="Questionario.html">Quiz - Qual o teu estilo</a></li>
+              <li><a href="analiseplanta.html">Questionário para análise inicial da sua planta</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="artigo">
+      <h1>Semana calma na arquitectura, com novembro a aquecer logo a seguir</h1>
+      <p class="data">6 de novembro de 2026</p>
+
+      <p>A semana de 7 a 13 de novembro é discreta no calendário da arquitectura em Portugal, mas é a antecâmara de um final de ano carregado. Quem trabalha na área tem boas razões para começar já a marcar datas.</p>
+
+      <h2>Um sector em abrandamento</h2>
+      <p>Os números do sector justificam atenção. O Barómetro da Reabilitação Urbana n.º 154, de outubro de 2026, mostra que o nível de atividade caiu 3,7% em termos homólogos em setembro, depois de uma descida de 0,5% em agosto. A reabilitação é uma das principais fontes de trabalho para ateliers de pequena e média dimensão, por isso a tendência merece ser acompanhada.</p>
+
+      <h2>Casa da Arquitectura, em Matosinhos</h2>
+      <p>A instituição está em destaque. O acervo de Eduardo Souto de Moura foi doado à Casa da Arquitectura, e o Presidente da República apelou aos mecenas para que apoiem a instituição. A notícia ficou ligada a um novo ciclo directivo da Casa.</p>
+
+      <h2>O que vem a seguir</h2>
+      <p><strong>Concreta, Porto (18 a 21 de novembro).</strong> A feira reúne na Exponor profissionais de arquitetura, construção, design e engenharia.</p>
+      <p><strong>Centro de Arquitectura do CCB, Lisboa (21 e 22 de novembro).</strong> O programa inclui um encontro sobre memórias, silêncios e disputas no espaço público de duas cidades ibéricas. O centro tem ainda um programa público associado às exposições, que decorre até dezembro.</p>
+      <p><strong>ArCaDia 7, Lisboa (24 a 28 de novembro).</strong> A Faculdade de Arquitetura da Universidade de Lisboa recebe um congresso internacional sobre habitação e cooperação, com o tema “Habitar na Encruzilhada”, no ano em que se assinalam os 50 anos do direito constitucional à habitação.</p>
+      <p><strong>Architect@Work Lisboa (3 e 4 de dezembro).</strong> Na sua quarta edição, a feira tem como tema “Matéria Infinita”, sobre materiais provenientes de resíduos agrícolas, alimentares, têxteis e industriais, e recursos recuperados de edifícios existentes.</p>
+
+      <p class="voltar"><a href="blog.html">Voltar ao blog</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">cinco atelier · Arquitectura, Design e Espaços</div>
+  </footer>
+  <script>
+    // Menu: abre/fecha ao toque (telemóvel) e fecha ao clicar fora
+    document.querySelectorAll('.menu > li').forEach(function (li) {
+      var btn = li.querySelector(':scope > button');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = li.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    });
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.menu > li').forEach(function (li) {
+        var b = li.querySelector(':scope > button');
+        if (b) { li.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }
+      });
+    });
+  </script>
+</body>
+</html>
