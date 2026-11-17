@@ -329,6 +329,59 @@
     }
 
 
+    /* Destaque para agendar reunião */
+    .agendar-caixa {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 32px 48px;
+      align-items: center;
+      padding: 48px;
+      border: 1px solid var(--text);
+    }
+
+    .agendar-titulo {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.1;
+      letter-spacing: -.04em;
+      font-weight: 500;
+      margin: 0 0 16px;
+    }
+
+    .agendar-caixa p { margin: 0; }
+
+    .botao {
+      display: inline-block;
+      padding: 18px 32px;
+      background: var(--text);
+      color: var(--bg);
+      border: 1px solid var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .78rem;
+      white-space: nowrap;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .botao:hover,
+    .botao:focus-visible {
+      background: transparent;
+      color: var(--text);
+    }
+
+    @media (max-width: 720px) {
+      .agendar-caixa {
+        grid-template-columns: 1fr;
+        padding: 28px;
+      }
+
+      .botao {
+        display: block;
+        text-align: center;
+        white-space: normal;
+      }
+    }
+
     /* Efeito nas palavras: fundo preto e letra com a cor do fundo do site */
     w-d { display: inline; }
     @media (hover: hover) {
@@ -588,6 +641,16 @@
       </div>
     </section>
 
+    <section class="agendar">
+      <div class="agendar-caixa">
+        <div>
+          <div class="agendar-titulo">Agende uma reunião</div>
+          <p>Marque uma reunião de acompanhamento de projecto, com a duração de uma hora.</p>
+        </div>
+        <a class="botao" href="https://calendly.com/cincoatelier/acompanhamento-de-projecto-1-hora" target="_blank" rel="noopener">Agendar reunião →</a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -615,7 +678,7 @@
   
     // Efeito nas palavras: cada palavra fica num elemento próprio para poder reagir ao cursor
     (function () {
-      var alvos = document.querySelectorAll('.brand, .intro, h2, .titulo-portfolio, .subtitulo, .servico h4, .servico-num, main p, footer .container');
+      var alvos = document.querySelectorAll('.brand, .intro, h2, .agendar-titulo, .titulo-portfolio, .subtitulo, .servico h4, .servico-num, main p, footer .container');
       alvos.forEach(function (el) {
         var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
         var nos = [];
