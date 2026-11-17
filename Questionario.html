@@ -121,15 +121,15 @@
  
   .grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
   }
   .card{
     border:1px solid var(--ink);
     background:var(--paper-light);
     cursor:pointer;
     position:relative;
-    padding:14px 12px 12px;
+    padding:10px 9px 9px;
     transition:transform .15s ease, box-shadow .15s ease;
   }
   .card:hover{ transform:translateY(-2px); }
@@ -348,31 +348,72 @@
       <div class="cat-label">Categoria 01</div>
       <div class="cat-title">Sofá &amp; zona de estar</div>
       <div class="grid" data-cat="sofa">
- 
+
+        <div class="card" data-style="rustico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/sofa-rustico.jpg" alt="Sofá – rústico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="boho">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/sofa-boho.jpg" alt="Sofá – boho" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="contemporaneo">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/sofa-contemporaneo.jpg" alt="Sofá – contemporâneo" loading="lazy" decoding="async">
+        </div>
+
         <div class="card" data-style="minimalista">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/sofa-minimalista.png" alt="Sofá – minimalista" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/sofa-minimalista.jpg" alt="Sofá – minimalista" loading="lazy" decoding="async">
         </div>
- 
-        <div class="card" data-style="escandinavo">
+
+        <div class="card" data-style="brutalismo">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/sofa-escandinavo.jpg" alt="Sofá – escandinavo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/sofa-brutalismo.jpg" alt="Sofá – brutalismo" loading="lazy" decoding="async">
         </div>
- 
+
         <div class="card" data-style="industrial">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/sofa-industrial.jpg" alt="Sofá – industrial" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="classico">
+
+        <div class="card" data-style="provencal">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/sofa-classico.jpg" alt="Sofá – clássico contemporâneo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/sofa-provencal.jpg" alt="Sofá – provençal" loading="lazy" decoding="async">
         </div>
- 
+
+        <div class="card" data-style="shabbychic">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/sofa-shabbychic.jpg" alt="Sofá – shabby chic" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="vintage">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/sofa-vintage.jpg" alt="Sofá – vintage" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="tropical">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/sofa-tropical.jpg" alt="Sofá – tropical" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="nautico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/sofa-nautico.jpg" alt="Sofá – náutico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="oriental">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/sofa-oriental.jpg" alt="Sofá – oriental" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="organico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/sofa-organico.jpg" alt="Sofá – orgânico" loading="lazy" decoding="async">
+        </div>
+
       </div>
     </div>
  
@@ -381,31 +422,72 @@
       <div class="cat-label">Categoria 02</div>
       <div class="cat-title">Cadeira de jantar</div>
       <div class="grid" data-cat="cadeira">
- 
+
+        <div class="card" data-style="rustico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/cadeira-rustico.jpg" alt="Cadeira de jantar – rústico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="boho">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/cadeira-boho.jpg" alt="Cadeira de jantar – boho" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="contemporaneo">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/cadeira-contemporaneo.jpg" alt="Cadeira de jantar – contemporâneo" loading="lazy" decoding="async">
+        </div>
+
         <div class="card" data-style="minimalista">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/cadeira-minimalista.jpg" alt="Cadeira de jantar – minimalista" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="escandinavo">
+
+        <div class="card" data-style="brutalismo">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/cadeira-escandinavo.jpg" alt="Cadeira de jantar – escandinavo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/cadeira-brutalismo.jpg" alt="Cadeira de jantar – brutalismo" loading="lazy" decoding="async">
         </div>
- 
+
         <div class="card" data-style="industrial">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/cadeira-industrial.jpg" alt="Cadeira de jantar – industrial" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="classico">
+
+        <div class="card" data-style="provencal">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/cadeira-classico.jpg" alt="Cadeira de jantar – clássico contemporâneo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/cadeira-provencal.jpg" alt="Cadeira de jantar – provençal" loading="lazy" decoding="async">
         </div>
- 
+
+        <div class="card" data-style="shabbychic">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/cadeira-shabbychic.jpg" alt="Cadeira de jantar – shabby chic" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="vintage">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/cadeira-vintage.jpg" alt="Cadeira de jantar – vintage" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="tropical">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/cadeira-tropical.jpg" alt="Cadeira de jantar – tropical" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="nautico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/cadeira-nautico.jpg" alt="Cadeira de jantar – náutico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="oriental">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/cadeira-oriental.jpg" alt="Cadeira de jantar – oriental" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="organico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/cadeira-organico.jpg" alt="Cadeira de jantar – orgânico" loading="lazy" decoding="async">
+        </div>
+
       </div>
     </div>
  
@@ -414,31 +496,72 @@
       <div class="cat-label">Categoria 03</div>
       <div class="cat-title">Mesa de centro</div>
       <div class="grid" data-cat="mesa">
- 
+
+        <div class="card" data-style="rustico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/mesa-rustico.jpg" alt="Mesa de centro – rústico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="boho">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/mesa-boho.jpg" alt="Mesa de centro – boho" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="contemporaneo">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/mesa-contemporaneo.jpg" alt="Mesa de centro – contemporâneo" loading="lazy" decoding="async">
+        </div>
+
         <div class="card" data-style="minimalista">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/mesa-minimalista.jpg" alt="Mesa de centro – minimalista" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="escandinavo">
+
+        <div class="card" data-style="brutalismo">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/mesa-escandinavo.jpg" alt="Mesa de centro – escandinavo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/mesa-brutalismo.jpg" alt="Mesa de centro – brutalismo" loading="lazy" decoding="async">
         </div>
- 
+
         <div class="card" data-style="industrial">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/mesa-industrial.jpg" alt="Mesa de centro – industrial" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="classico">
+
+        <div class="card" data-style="provencal">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/mesa-classico.jpg" alt="Mesa de centro – clássico contemporâneo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/mesa-provencal.jpg" alt="Mesa de centro – provençal" loading="lazy" decoding="async">
         </div>
- 
+
+        <div class="card" data-style="shabbychic">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/mesa-shabbychic.jpg" alt="Mesa de centro – shabby chic" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="vintage">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/mesa-vintage.jpg" alt="Mesa de centro – vintage" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="tropical">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/mesa-tropical.jpg" alt="Mesa de centro – tropical" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="nautico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/mesa-nautico.jpg" alt="Mesa de centro – náutico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="oriental">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/mesa-oriental.jpg" alt="Mesa de centro – oriental" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="organico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/mesa-organico.jpg" alt="Mesa de centro – orgânico" loading="lazy" decoding="async">
+        </div>
+
       </div>
     </div>
  
@@ -447,31 +570,72 @@
       <div class="cat-label">Categoria 04</div>
       <div class="cat-title">Iluminação</div>
       <div class="grid" data-cat="iluminacao">
- 
+
+        <div class="card" data-style="rustico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/iluminacao-rustico.jpg" alt="Iluminação – rústico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="boho">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/iluminacao-boho.jpg" alt="Iluminação – boho" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="contemporaneo">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/iluminacao-contemporaneo.jpg" alt="Iluminação – contemporâneo" loading="lazy" decoding="async">
+        </div>
+
         <div class="card" data-style="minimalista">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/iluminacao-minimalista.jpg" alt="Iluminação – minimalista" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="escandinavo">
+
+        <div class="card" data-style="brutalismo">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/iluminacao-escandinavo.jpg" alt="Iluminação – escandinavo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/iluminacao-brutalismo.jpg" alt="Iluminação – brutalismo" loading="lazy" decoding="async">
         </div>
- 
+
         <div class="card" data-style="industrial">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/iluminacao-industrial.jpg" alt="Iluminação – industrial" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="classico">
+
+        <div class="card" data-style="provencal">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/iluminacao-classico.jpg" alt="Iluminação – clássico contemporâneo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/iluminacao-provencal.jpg" alt="Iluminação – provençal" loading="lazy" decoding="async">
         </div>
- 
+
+        <div class="card" data-style="shabbychic">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/iluminacao-shabbychic.jpg" alt="Iluminação – shabby chic" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="vintage">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/iluminacao-vintage.jpg" alt="Iluminação – vintage" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="tropical">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/iluminacao-tropical.jpg" alt="Iluminação – tropical" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="nautico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/iluminacao-nautico.jpg" alt="Iluminação – náutico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="oriental">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/iluminacao-oriental.jpg" alt="Iluminação – oriental" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="organico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/iluminacao-organico.jpg" alt="Iluminação – orgânico" loading="lazy" decoding="async">
+        </div>
+
       </div>
     </div>
  
@@ -480,31 +644,72 @@
       <div class="cat-label">Categoria 05</div>
       <div class="cat-title">Paleta de cores</div>
       <div class="grid" data-cat="paleta">
- 
+
+        <div class="card" data-style="rustico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/paleta-rustico.jpg" alt="Paleta de cores – rústico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="boho">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/paleta-boho.jpg" alt="Paleta de cores – boho" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="contemporaneo">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/paleta-contemporaneo.jpg" alt="Paleta de cores – contemporâneo" loading="lazy" decoding="async">
+        </div>
+
         <div class="card" data-style="minimalista">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/paleta-minimalista.jpg" alt="Paleta de cores – minimalista" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="escandinavo">
+
+        <div class="card" data-style="brutalismo">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/paleta-escandinavo.jpg" alt="Paleta de cores – escandinavo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/paleta-brutalismo.jpg" alt="Paleta de cores – brutalismo" loading="lazy" decoding="async">
         </div>
- 
+
         <div class="card" data-style="industrial">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/paleta-industrial.jpg" alt="Paleta de cores – industrial" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="classico">
+
+        <div class="card" data-style="provencal">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/paleta-classico.jpg" alt="Paleta de cores – clássico contemporâneo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/paleta-provencal.jpg" alt="Paleta de cores – provençal" loading="lazy" decoding="async">
         </div>
- 
+
+        <div class="card" data-style="shabbychic">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/paleta-shabbychic.jpg" alt="Paleta de cores – shabby chic" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="vintage">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/paleta-vintage.jpg" alt="Paleta de cores – vintage" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="tropical">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/paleta-tropical.jpg" alt="Paleta de cores – tropical" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="nautico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/paleta-nautico.jpg" alt="Paleta de cores – náutico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="oriental">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/paleta-oriental.jpg" alt="Paleta de cores – oriental" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="organico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/paleta-organico.jpg" alt="Paleta de cores – orgânico" loading="lazy" decoding="async">
+        </div>
+
       </div>
     </div>
  
@@ -513,31 +718,72 @@
       <div class="cat-label">Categoria 06</div>
       <div class="cat-title">Materiais</div>
       <div class="grid" data-cat="materiais">
- 
+
+        <div class="card" data-style="rustico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/materiais-rustico.jpg" alt="Materiais – rústico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="boho">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/materiais-boho.jpg" alt="Materiais – boho" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="contemporaneo">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/materiais-contemporaneo.jpg" alt="Materiais – contemporâneo" loading="lazy" decoding="async">
+        </div>
+
         <div class="card" data-style="minimalista">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/materiais-minimalista.jpg" alt="Materiais – minimalista" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="escandinavo">
+
+        <div class="card" data-style="brutalismo">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/materiais-escandinavo.jpg" alt="Materiais – escandinavo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/materiais-brutalismo.jpg" alt="Materiais – brutalismo" loading="lazy" decoding="async">
         </div>
- 
+
         <div class="card" data-style="industrial">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/materiais-industrial.jpg" alt="Materiais – industrial" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="classico">
+
+        <div class="card" data-style="provencal">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/materiais-classico.jpg" alt="Materiais – clássico contemporâneo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/materiais-provencal.jpg" alt="Materiais – provençal" loading="lazy" decoding="async">
         </div>
- 
+
+        <div class="card" data-style="shabbychic">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/materiais-shabbychic.jpg" alt="Materiais – shabby chic" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="vintage">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/materiais-vintage.jpg" alt="Materiais – vintage" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="tropical">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/materiais-tropical.jpg" alt="Materiais – tropical" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="nautico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/materiais-nautico.jpg" alt="Materiais – náutico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="oriental">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/materiais-oriental.jpg" alt="Materiais – oriental" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="organico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/materiais-organico.jpg" alt="Materiais – orgânico" loading="lazy" decoding="async">
+        </div>
+
       </div>
     </div>
  
@@ -546,31 +792,72 @@
       <div class="cat-label">Categoria 07</div>
       <div class="cat-title">Revestimentos</div>
       <div class="grid" data-cat="revestimentos">
- 
+
+        <div class="card" data-style="rustico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/revestimentos-rustico.jpg" alt="Revestimentos – rústico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="boho">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/revestimentos-boho.jpg" alt="Revestimentos – boho" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="contemporaneo">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/revestimentos-contemporaneo.jpg" alt="Revestimentos – contemporâneo" loading="lazy" decoding="async">
+        </div>
+
         <div class="card" data-style="minimalista">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/revestimentos-minimalista.jpg" alt="Revestimentos – minimalista" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="escandinavo">
+
+        <div class="card" data-style="brutalismo">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/revestimentos-escandinavo.jpg" alt="Revestimentos – escandinavo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/revestimentos-brutalismo.jpg" alt="Revestimentos – brutalismo" loading="lazy" decoding="async">
         </div>
- 
+
         <div class="card" data-style="industrial">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
           <img src="imagens/quiz/revestimentos-industrial.jpg" alt="Revestimentos – industrial" loading="lazy" decoding="async">
-          
         </div>
- 
-        <div class="card" data-style="classico">
+
+        <div class="card" data-style="provencal">
           <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
-          <img src="imagens/quiz/revestimentos-classico.jpg" alt="Revestimentos – clássico contemporâneo" loading="lazy" decoding="async">
-          
+          <img src="imagens/quiz/revestimentos-provencal.jpg" alt="Revestimentos – provençal" loading="lazy" decoding="async">
         </div>
- 
+
+        <div class="card" data-style="shabbychic">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/revestimentos-shabbychic.jpg" alt="Revestimentos – shabby chic" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="vintage">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/revestimentos-vintage.jpg" alt="Revestimentos – vintage" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="tropical">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/revestimentos-tropical.jpg" alt="Revestimentos – tropical" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="nautico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/revestimentos-nautico.jpg" alt="Revestimentos – náutico" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="oriental">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/revestimentos-oriental.jpg" alt="Revestimentos – oriental" loading="lazy" decoding="async">
+        </div>
+
+        <div class="card" data-style="organico">
+          <div class="corner tl"></div><div class="corner br"></div><div class="check"></div>
+          <img src="imagens/quiz/revestimentos-organico.jpg" alt="Revestimentos – orgânico" loading="lazy" decoding="async">
+        </div>
+
       </div>
     </div>
  
@@ -648,24 +935,60 @@
   // URL da aplicação web do Apps Script (ver instruções). Enquanto não for preenchido, os dados não são enviados.
   var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxSRKSYP7bz1-66BIYN7rq76RA-Rsc-PmxIPcy3oCoJyqsg5jOOY_3KGfDJuieE3fTx/exec";
   var current = 1;
-  var answers = {}; // { sofa: 'escandinavo', cadeira: 'classico', ... }
+  var answers = {}; // { sofa: 'rustico', cadeira: 'boho', ... }
  
   var styleMeta = {
+    rustico: {
+      name: "Rústico",
+      desc: "Procura o calor da natureza e dos materiais em bruto — madeira maciça, pedra e peças com história — num ambiente acolhedor e autêntico."
+    },
+    boho: {
+      name: "Boho",
+      desc: "Gosta de espaços livres e ecléticos, cheios de texturas, padrões e peças de várias origens — um ambiente descontraído, pessoal e cheio de personalidade."
+    },
+    contemporaneo: {
+      name: "Contemporâneo",
+      desc: "Valoriza a actualidade: linhas depuradas, materiais actuais e conforto, com equilíbrio entre estética e funcionalidade."
+    },
     minimalista: {
       name: "Minimalista",
       desc: "Procura espaços de linhas limpas, poucas peças e ausência de ornamento — a funcionalidade acima de tudo, com espaço para respirar."
     },
-    escandinavo: {
-      name: "Escandinavo",
-      desc: "Valoriza a luz natural, madeiras claras e o conforto despretensioso — calor sem exagero, com um toque orgânico."
+    brutalismo: {
+      name: "Brutalismo",
+      desc: "Atrai-o a honestidade dos materiais: betão à vista, volumes fortes e formas monumentais, numa estética crua e escultórica."
     },
     industrial: {
       name: "Industrial",
       desc: "Gosta de texturas em bruto, estrutura à vista e um carácter urbano e robusto, com contrastes fortes."
     },
-    classico: {
-      name: "Clássico Contemporâneo",
-      desc: "Aprecia curvas, conforto envolvente e um toque de sofisticação atemporal, sem cair no excesso decorativo."
+    provencal: {
+      name: "Provençal",
+      desc: "Inspira-se no campo do sul de França: tons suaves, madeiras patinadas, tecidos naturais e um romantismo simples e luminoso."
+    },
+    shabbychic: {
+      name: "Shabby chic",
+      desc: "Gosta do charme do desgastado: móveis patinados, tons pastel e detalhes românticos, num ambiente delicado e acolhedor."
+    },
+    vintage: {
+      name: "Vintage",
+      desc: "Aprecia peças com história e o encanto de outras décadas, combinando cores, formas e objectos de época com nostalgia e personalidade."
+    },
+    tropical: {
+      name: "Tropical",
+      desc: "Procura frescura e exotismo: vegetação luxuriante, cores vivas, fibras naturais e ambientes luminosos que trazem o ar livre para dentro de casa."
+    },
+    nautico: {
+      name: "Náutico",
+      desc: "Inspira-se no mar: azuis e brancos, riscas, madeiras e cordas, numa atmosfera fresca, arejada e descontraída."
+    },
+    oriental: {
+      name: "Oriental",
+      desc: "Valoriza a serenidade e o equilíbrio: formas simples, materiais naturais, mobiliário baixo e detalhes de inspiração asiática."
+    },
+    organico: {
+      name: "Orgânico",
+      desc: "Prefere formas suaves e fluidas e materiais naturais, com curvas, texturas e tons da terra que criam espaços acolhedores e em harmonia com a natureza."
     }
   };
  
@@ -744,11 +1067,19 @@
   });
  
   function computeResult(){
-    var counts = { minimalista:0, escandinavo:0, industrial:0, classico:0 };
-    Object.keys(answers).forEach(function(cat){
-      counts[answers[cat]] = (counts[answers[cat]] || 0) + 1;
+    var counts = {};
+    Object.keys(styleMeta).forEach(function(k){ counts[k] = 0; });
+    var primeira = {};   // posição da pergunta em que cada estilo foi escolhido pela primeira vez (desempate)
+    Object.keys(answers).forEach(function(cat, i){
+      var st = answers[cat];
+      if (counts[st] === undefined) return;
+      counts[st] += 1;
+      if (primeira[st] === undefined) primeira[st] = i;
     });
-    var order = Object.keys(counts).sort(function(a,b){ return counts[b]-counts[a]; });
+    // só entram os estilos escolhidos pelo menos uma vez; em caso de empate vence o escolhido primeiro
+    var order = Object.keys(counts).filter(function(k){ return counts[k] > 0; }).sort(function(a,b){
+      return (counts[b]-counts[a]) || (primeira[a]-primeira[b]);
+    });
     return { counts: counts, order: order };
   }
  
@@ -810,8 +1141,7 @@
       iluminacao: nm(answers.iluminacao), paleta: nm(answers.paleta),
       materiais: nm(answers.materiais), revestimentos: nm(answers.revestimentos),
       resultado: nm(r.order[0]),
-      pct_minimalista: pct('minimalista'), pct_escandinavo: pct('escandinavo'),
-      pct_industrial: pct('industrial'), pct_classico: pct('classico')
+      pct: Object.keys(styleMeta).reduce(function(o,k){ o[k] = pct(k); return o; }, {})
     };
   }
  
